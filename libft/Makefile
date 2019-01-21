@@ -3,14 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: grochefo <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:51:46 by grochefo          #+#    #+#              #
-#    Updated: 2018/12/11 12:57:12 by grochefo         ###   ########.fr        #
+#    Updated: 2019/01/21 15:35:40 by grochefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 	ft_atoi.c \
+NAME = libft.a
+FILES_C = 	ft_atoi.c \
 		ft_lstdel.c \
 		ft_memdel.c \
 		ft_putstr_fd.c \
@@ -69,21 +70,31 @@ SRC = 	ft_atoi.c \
 		ft_striter.c \
 		ft_strnequ.c \
 		ft_strjoinplus.c \
-		ft_strndup.c
-.PHONY: clean fclean re all
-.SILENT: clean fclean re
-INCLUDE = includes/
-NAME = libft.a
-RM = rm -f
-OBJ = $(patsubst %.c,%.o,$(SRC))
-GCC = gcc -Wall -Werror -Wextra -c
-ARRC = ar rc
+		ft_strndup.c \
+		get_next_line.c
+
+INC = get_next_line.h libft.h
+OBJ = $(patsubst %.c,%.o,$(FILES_C))
+FLAGS = -Wall -Werror -Wextra
+
+.PHONY : clean fclean re all
+.SILENT : clean fclean re all $(NAME)
+
 all: $(NAME)
-$(NAME) :
-	   @$(GCC) $(SRC) -I$(INCLUDE)
-		@$(ARRC) $(NAME) $(OBJ)
+
+$(NAME) : $(FILES_C) $(INC)
+	echo "LIBFT compiling..."
+	gcc -I.	$(FLAGS) -c $(FILES_C)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+	echo "LIBFT compilation over."
+
 clean :
-	    $(RM) $(OBJ)
+	echo "Cleaning..."
+	rm -f $(OBJ)
+	echo ".o removed."
+
 fclean: clean
-	    $(RM) $(NAME)
+	    rm -f $(NAME)
+		echo "$(NAME) removed."
 re: fclean all

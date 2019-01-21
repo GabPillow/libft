@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grochefo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2018/12/12 14:58:08 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/01/21 15:15:09 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define LIBFT_H
 
+# include <get_next_line.h>
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
