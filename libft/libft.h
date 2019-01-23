@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2019/01/21 15:15:09 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/01/23 18:06:48 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define LIBFT_H
 
-# include <get_next_line.h>
+# include "get_next_line.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -88,5 +88,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_strjoinplus(char *s1, char *s2, int c);
-char				*ft_strndup(char *s, size_t i);
+char				*ft_strndup(const char *s, size_t i);
+char				*ft_itoa_base(int n, char *base);
+char				*ft_strrev(const char *str);
 #endif

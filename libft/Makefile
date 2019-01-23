@@ -6,7 +6,7 @@
 #    By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:51:46 by grochefo          #+#    #+#              #
-#    Updated: 2019/01/21 15:35:40 by grochefo         ###   ########.fr        #
+#    Updated: 2019/01/23 17:46:00 by grochefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,9 @@ FILES_C = 	ft_atoi.c \
 		ft_strnequ.c \
 		ft_strjoinplus.c \
 		ft_strndup.c \
-		get_next_line.c
+		get_next_line.c \
+		ft_itoabase.c \
+		ft_strrev.c
 
 INC = get_next_line.h libft.h
 OBJ = $(patsubst %.c,%.o,$(FILES_C))
@@ -90,7 +92,7 @@ $(NAME) : $(FILES_C) $(INC)
 	echo "LIBFT compilation over."
 
 clean :
-	echo "Cleaning..."
+	echo "Cleaning LIBFT..."
 	rm -f $(OBJ)
 	echo ".o removed."
 
