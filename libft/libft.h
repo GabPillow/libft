@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2019/01/23 18:06:48 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/01/24 18:32:14 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define BASE_161 "0123456789abcdef"
+# define BASE_162 "0123456789ABCDEDF"
+# define BASE_10 "0123456789"
+# define BASE_BIN "01"
+# define BASE_8 "01234567"
 
 typedef	struct		s_list
 {
@@ -91,4 +97,5 @@ char				*ft_strjoinplus(char *s1, char *s2, int c);
 char				*ft_strndup(const char *s, size_t i);
 char				*ft_itoa_base(int n, char *base);
 char				*ft_strrev(const char *str);
+char				*ft_llutoa_base(unsigned long long n, char *base);
 #endif

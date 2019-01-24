@@ -6,7 +6,7 @@
 #    By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:51:46 by grochefo          #+#    #+#              #
-#    Updated: 2019/01/23 17:46:00 by grochefo         ###   ########.fr        #
+#    Updated: 2019/01/24 17:29:15 by grochefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,8 @@ FILES_C = 	ft_atoi.c \
 		ft_strndup.c \
 		get_next_line.c \
 		ft_itoabase.c \
-		ft_strrev.c
+		ft_strrev.c \
+		ft_llutoa_base.c
 
 INC = get_next_line.h libft.h
 OBJ = $(patsubst %.c,%.o,$(FILES_C))
