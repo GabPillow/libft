@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grochefo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 17:02:04 by grochefo          #+#    #+#             */
-/*   Updated: 2018/11/22 16:33:08 by grochefo         ###   ########.fr       */
+/*   Created: 2018/11/08 18:33:55 by grochefo          #+#    #+#             */
+/*   Updated: 2019/01/25 14:12:50 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strdup(const char *src)
 {
-	ft_memcpy(dest, src, ft_strlen(src) + 1);
-	dest[ft_strlen(src)] = '\0';
+	char	*dest;
+	int		i;
+
+	i = 0;
+	if (!(dest = ft_strnew(ft_strlen(src))))
+		return (NULL);
+	ft_strcpy(dest, src);
 	return (dest);
 }

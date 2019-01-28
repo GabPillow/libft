@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2019/01/24 18:32:14 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/01/28 16:47:36 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,5 @@ char				*ft_strndup(const char *s, size_t i);
 char				*ft_itoa_base(int n, char *base);
 char				*ft_strrev(const char *str);
 char				*ft_llutoa_base(unsigned long long n, char *base);
+char				*ft_ltoa_base(long n, char *base);
 #endif

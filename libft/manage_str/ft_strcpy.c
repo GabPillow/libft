@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grochefo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 18:33:55 by grochefo          #+#    #+#             */
-/*   Updated: 2018/11/23 17:00:01 by grochefo         ###   ########.fr       */
+/*   Created: 2018/11/08 17:02:04 by grochefo          #+#    #+#             */
+/*   Updated: 2019/01/25 14:16:10 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	char	*dest;
-	int		i;
-
-	i = 0;
-	if (!(dest = (char*)ft_memalloc(ft_strlen(src) + 1)))
-		return (NULL);
-	ft_strcpy(dest, src);
+	ft_memcpy(dest, src, ft_strlen(src) + 1);
+	dest[ft_strlen(src)] = '\0';
 	return (dest);
 }

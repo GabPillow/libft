@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 17:23:57 by grochefo          #+#    #+#             */
-/*   Updated: 2019/01/24 18:31:30 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/01/28 14:46:44 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_llutoa_base(unsigned long long n, char *base)
 
 	b = ft_strlen(base);
 	i = 0;
+	if (n == 0)
+		return ("0");
 	str = ft_strnew(32);
 	while (n > 0)
 	{
