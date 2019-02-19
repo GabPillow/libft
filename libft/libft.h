@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2019/01/28 16:47:36 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/02/19 14:14:15 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 # define LIBFT_H
 
 # include "get_next_line.h"
+# include "ft_limits.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BASE_161 "0123456789abcdef"
-# define BASE_162 "0123456789ABCDEDF"
-# define BASE_10 "0123456789"
-# define BASE_BIN "01"
-# define BASE_8 "01234567"
+# define BASE_16_MIN	"0123456789abcdef"
+# define BASE_16_MAJ	"0123456789ABCDEF"
+# define BASE_10 		"0123456789"
+# define BASE_BIN		"01"
+# define BASE_8			"01234567"
 
 typedef	struct		s_list
 {
@@ -32,6 +33,7 @@ typedef	struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+char				*ft_uitoa_base(unsigned int n, char *base);
 size_t				ft_strlen(const char *str);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
@@ -95,8 +97,12 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_strjoinplus(char *s1, char *s2, int c);
 char				*ft_strndup(const char *s, size_t i);
-char				*ft_itoa_base(int n, char *base);
+char				*ft_itoabase(int n, char *base);
 char				*ft_strrev(const char *str);
 char				*ft_llutoa_base(unsigned long long n, char *base);
 char				*ft_ltoa_base(long n, char *base);
+char				*ft_strjoinnplus(char *s1, char *s2, int c, size_t len2);
+char				*ft_ftoa(double n, size_t prec);
+char				*ft_ltoa(long n);
+size_t				ft_strlenn(const char *str, char c);
 #endif

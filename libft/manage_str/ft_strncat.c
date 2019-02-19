@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grochefo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 19:28:42 by grochefo          #+#    #+#             */
-/*   Updated: 2018/11/22 18:31:51 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/01/31 12:58:46 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 char	*ft_strncat(char *dest, const char *src, size_t n)
 {

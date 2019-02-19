@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinplus.c                                   :+:      :+:    :+:   */
+/*   ft_strjoinnplus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/11 12:59:33 by grochefo          #+#    #+#             */
-/*   Updated: 2019/02/11 20:09:11 by grochefo         ###   ########.fr       */
+/*   Created: 2019/01/31 13:01:15 by grochefo          #+#    #+#             */
+/*   Updated: 2019/02/19 16:46:52 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoinplus(char *s1, char *s2, int c)
+char	*ft_strjoinnplus(char *s1, char *s2, int c, size_t len2)
 {
 	char *str_new;
 
@@ -24,15 +24,15 @@ char	*ft_strjoinplus(char *s1, char *s2, int c)
 	}
 	else if (s2 && !s1)
 	{
-		if (!(str_new = ft_strdup(s2)))
+		if (!(str_new = ft_strndup(s2, len2)))
 			return (NULL);
 	}
 	else if (s1 && s2)
 	{
-		if (!(str_new = (char*)ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
+		if (!(str_new = ft_strnew(ft_strlen(s1) + len2)))
 			return (NULL);
 		ft_strcpy(str_new, s1);
-		ft_strcat(str_new, s2);
+		ft_strncat(str_new, s2, len2);
 	}
 	if (s1 && (c == 1 || c == 3))
 		ft_strdel(&s1);

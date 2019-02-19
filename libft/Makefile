@@ -6,7 +6,7 @@
 #    By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:51:46 by grochefo          #+#    #+#              #
-#    Updated: 2019/01/28 16:49:51 by grochefo         ###   ########.fr        #
+#    Updated: 2019/02/19 14:13:33 by grochefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,9 @@ FILES_C = 	convtype/ft_atoi.c \
 		convtype/ft_llutoa_base.c \
 		convtype/ft_ltoa_base.c \
 		convtype/ft_itoabase.c \
+		convtype/ft_uitoa_base.c \
+		convtype/ft_ftoa.c \
+		convtype/ft_ltoa.c \
 		manage_list/ft_lstdel.c \
 		manage_list/ft_lstdelone.c \
 		manage_list/ft_lstiter.c \
@@ -71,6 +74,8 @@ FILES_C = 	convtype/ft_atoi.c \
 		manage_str/ft_strnequ.c \
 		manage_str/ft_strjoinplus.c \
 		manage_str/ft_strndup.c \
+		manage_str/ft_strjoinnplus.c\
+		manage_str/ft_strlenn.c \
 		manage_fd/ft_putchar_fd.c \
 		manage_fd/ft_putnbr_fd.c \
 		manage_fd/ft_putstr_fd.c \
@@ -78,7 +83,7 @@ FILES_C = 	convtype/ft_atoi.c \
 		ft_bzero.c \
 		get_next_line.c
 
-INC = get_next_line.h libft.h
+INC = get_next_line.h libft.h ft_limits.h
 OBJ = $(patsubst %.c,%.o,$(FILES_C))
 FLAGS = -Wall -Werror -Wextra
 

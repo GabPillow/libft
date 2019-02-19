@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 17:42:48 by grochefo          #+#    #+#             */
-/*   Updated: 2019/01/24 18:52:38 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/01/31 10:43:32 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strrev(const char *str)
 
 	b = 0;
 	i = ft_strlen(str) - 1;
-	str_copy = ft_strnew(ft_strlen(str));
+	if (!(str_copy = ft_strnew(ft_strlen(str))))
+		return (NULL);
 	while (str[b])
 	{
 		str_copy[i] = str[b];

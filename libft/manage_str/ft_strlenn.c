@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strlenn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 20:37:35 by grochefo          #+#    #+#             */
-/*   Updated: 2019/02/11 20:11:24 by grochefo         ###   ########.fr       */
+/*   Created: 2019/02/19 14:10:45 by grochefo          #+#    #+#             */
+/*   Updated: 2019/02/19 14:45:13 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+size_t	ft_strlenn(const char *str, char c)
 {
-	char *strnew;
+	size_t i;
 
-	strnew = (char*)ft_memalloc(size + 1);
-	return (strnew);
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
 }
