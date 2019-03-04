@@ -6,7 +6,7 @@
 #    By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:51:46 by grochefo          #+#    #+#              #
-#    Updated: 2019/02/19 14:13:33 by grochefo         ###   ########.fr        #
+#    Updated: 2019/03/02 18:01:01 by grochefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ FILES_C = 	convtype/ft_atoi.c \
 		convtype/ft_itoabase.c \
 		convtype/ft_uitoa_base.c \
 		convtype/ft_ftoa.c \
-		convtype/ft_ltoa.c \
+		convtype/ft_lltoa.c \
+		convtype/ft_ultoa_base.c \
+		convtype/ft_lltoa_base.c \
 		manage_list/ft_lstdel.c \
 		manage_list/ft_lstdelone.c \
 		manage_list/ft_lstiter.c \
@@ -81,16 +83,16 @@ FILES_C = 	convtype/ft_atoi.c \
 		manage_fd/ft_putstr_fd.c \
 		manage_fd/ft_putendl_fd.c \
 		ft_bzero.c \
-		get_next_line.c
+		get_next_line.c \
+		ft_exit.c
 
-INC = get_next_line.h libft.h ft_limits.h
+INC = get_next_line.h libft.h
 OBJ = $(patsubst %.c,%.o,$(FILES_C))
-FLAGS = -Wall -Werror -Wextra
 
 .PHONY : clean fclean re all
 .SILENT : clean fclean re all $(NAME)
 all: $(NAME)
-	
+
 $(NAME) : $(FILES_C) $(INC) $(OBJ)
 	echo "LIBFT compiling..."
 	ar rc $(NAME) $(OBJ)

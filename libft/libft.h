@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2019/02/19 14:14:15 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:57:48 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 # define LIBFT_H
 
 # include "get_next_line.h"
-# include "ft_limits.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 # define BASE_16_MIN	"0123456789abcdef"
 # define BASE_16_MAJ	"0123456789ABCDEF"
@@ -102,7 +102,10 @@ char				*ft_strrev(const char *str);
 char				*ft_llutoa_base(unsigned long long n, char *base);
 char				*ft_ltoa_base(long n, char *base);
 char				*ft_strjoinnplus(char *s1, char *s2, int c, size_t len2);
-char				*ft_ftoa(double n, size_t prec);
-char				*ft_ltoa(long n);
+char				*ft_ftoa(long double n, size_t prec);
+char				*ft_lltoa(long long n);
 size_t				ft_strlenn(const char *str, char c);
+char				*ft_ultoa_base(unsigned long n, char *base);
+char				*ft_lltoa_base(long long n, char *base);
+void				ft_printexit(int c);
 #endif

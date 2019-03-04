@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_llutoa_base.c                                   :+:      :+:    :+:   */
+/*   ft_ultoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 17:23:57 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/03 19:48:25 by grochefo         ###   ########.fr       */
+/*   Created: 2019/02/19 17:03:01 by grochefo          #+#    #+#             */
+/*   Updated: 2019/02/19 17:06:45 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_llutoa_base(unsigned long long n, char *base)
+char	*ft_ultoa_base(unsigned long n, char *base)
 {
 	char	*str;
 	int		i;

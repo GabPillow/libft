@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ltoa.c                                          :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 17:32:06 by grochefo          #+#    #+#             */
-/*   Updated: 2019/02/11 19:40:43 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/02 18:00:37 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*copy(char *s, long n, int i)
+static char		*copy(char *s, long long n, int i)
 {
-	if (n == -9223372036854775807)
+	if (n == LLONG_MIN)
 	{
-		ft_strcpy(&s[1], "9223372036854775807");
+		ft_strcpy(&s[1], "9223372036854775808");
 		return (s);
 	}
 	if (n < 0)
@@ -31,15 +31,15 @@ static char		*copy(char *s, long n, int i)
 	return (s);
 }
 
-char			*ft_ltoa(long n)
+char			*ft_lltoa(long long n)
 {
-	char	*str_new;
-	int		i;
-	long	svg;
+	char		*str_new;
+	int			i;
+	long long	svg;
 
 	svg = n;
 	i = 1;
-	while (svg > 9 || svg < -9)
+	while (svg > 10 || svg < -10)
 	{
 		svg = svg / 10;
 		i++;

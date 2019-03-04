@@ -6,51 +6,60 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:10:07 by grochefo          #+#    #+#             */
-/*   Updated: 2019/02/19 16:48:51 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/04 17:18:41 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_howmanynb(int n, char *str, int base)
+static int		ft_howmanynbr(int n, int base)
 {
-	int		nb;
-	int		s;
+	int	t;
 
-	s = 0;
-	nb = 0;
-	if (n < 0 && base == 10)
-		s = 1;
-	while (n >= 10 || n <= -10)
+	t = 0;
+	n < 0 && base == 16 ? t += 5 : 0;
+	while (n > 1 || n < -1)
 	{
 		n /= base;
-		nb++;
+		t++;
 	}
-	if (!(str = ft_strnew(nb + s)))
-		return (NULL);
-	if (s)
-		str[nb] = '-';
+	return (t);
+}
+
+static char		*ft_trad(char *str, int n, char *base)
+{
+	int i;
+	int t;
+
+	t = ft_howmanynbr(n, ft_strlen(base));
+	i = 0;
+	while (t--)
+	{
+		str[i] = base[n % ft_strlen(base)];
+		n /= ft_strlen(base);
+		i++;
+	}
 	return (str);
 }
 
 char			*ft_itoabase(int n, char *base)
 {
 	char	*str;
-	int		i;
 
-	i = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	str = ft_strnew(ft_howmanynbr(n, ft_strlen(base)));
 	if (n == 0)
-		return (ft_strdup("0"));
-	str = ft_howmanynb(n, str, ft_strlen(base));
-	if (n < 0)
-		n *= -1;
-	while (n > 0)
+		str = ft_strdup("0");
+	else if (n < 0)
 	{
-		str[i++] = base[n % ft_strlen(base)];
-		n /= ft_strlen(base);
+		str = ft_trad(str, n, base);
+		if (ft_strlen(base) != 16)
+		{
+			if (!(str = ft_strjoinplus(str, "-", 1)))
+				return (NULL);
+		}
 	}
+	else
+		str = ft_trad(str, n, base);
 	str = ft_strrev(str);
 	return (str);
 }

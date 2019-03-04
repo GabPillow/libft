@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 15:58:09 by grochefo          #+#    #+#             */
-/*   Updated: 2019/02/19 16:41:46 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/04 18:00:42 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char		*arrondi(char *str, size_t prec, size_t end)
 	return (str_new);
 }
 
-char			*ft_ftoa(double n, size_t prec)
+char			*ft_ftoa(long double n, size_t prec)
 {
 	char	*str_new;
 	size_t	start;
@@ -64,17 +64,17 @@ char			*ft_ftoa(double n, size_t prec)
 
 	s = 1;
 	n < 0 ? s = -1 : 0;
-	str_new = ft_ltoa((long)n * s);
+	str_new = ft_lltoa((long long)n * s);
 	start = ft_strlen(str_new) + 1;
 	if (!(str_new = ft_strjoinplus(str_new, ".", 1)))
 		return (NULL);
-	n = (n * s) - ((long)n * s);
+	n = (n * s) - ((long long)n * s);
 	while (n)
 	{
 		n *= 10;
-		if (!(str_new = ft_strjoinplus(str_new, ft_ltoa((long)n), 3)))
+		if (!(str_new = ft_strjoinplus(str_new, ft_lltoa((long long)n), 3)))
 			return (NULL);
-		n -= (long)n;
+		n -= (long long)n;
 	}
 	if ((ft_strlen(str_new) - start) > prec)
 		str_new = arrondi(str_new, prec, ft_strlen(str_new));

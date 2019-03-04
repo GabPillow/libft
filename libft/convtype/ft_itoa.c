@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/18 17:09:33 by grochefo          #+#    #+#             */
-/*   Updated: 2019/01/28 15:24:06 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/01 18:16:19 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char			*ft_itoa(int n)
 
 	svg = n;
 	i = 1;
-	while (svg > 9 || svg < -9)
+	while (svg > 10 || svg < -10)
 	{
 		svg = svg / 10;
 		i++;
