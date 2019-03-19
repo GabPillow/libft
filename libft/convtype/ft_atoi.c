@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 12:37:59 by grochefo          #+#    #+#             */
-/*   Updated: 2019/02/26 14:08:39 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/13 17:16:43 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int i;
-	int a;
-	int n;
+	int		i;
+	int		a;
+	int		n;
 
 	n = 1;
 	a = 0;

@@ -1,20 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/22 18:21:02 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/13 16:23:00 by grochefo         ###   ########.fr       */
+/*   Created: 2019/03/10 14:19:23 by grochefo          #+#    #+#             */
+/*   Updated: 2019/03/10 14:42:08 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_printexit(int c)
+static char		*copy(char *s, unsigned int n, int i)
 {
-	if (c == 1)
-		return ;
-	exit(-1);
+	if (n <= 9)
+		s[i] = n + '0';
+	else
+	{
+		copy(s, n / 10, i - 1);
+		s[i] = (n % 10) + '0';
+	}
+	return (s);
+}
+
+char			*ft_uitoa(unsigned int n)
+{
+	char			*str_new;
+	int				i;
+	unsigned int	svg;
+
+	svg = n;
+	i = 1;
+	while (svg > 10)
+	{
+		svg = svg / 10;
+		i++;
+	}
+	if (!(str_new = ft_strnew(i)))
+		return (NULL);
+	copy(str_new, n, i - 1);
+	str_new[i] = '\0';
+	return (str_new);
 }

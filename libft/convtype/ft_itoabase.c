@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:10:07 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/04 17:18:41 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/18 20:45:30 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static int		ft_howmanynbr(int n, int base)
 
 	t = 0;
 	n < 0 && base == 16 ? t += 5 : 0;
-	while (n > 1 || n < -1)
+	n < 0 && base == 8 ? t += 6 : 0;
+	while (n != 0)
 	{
 		n /= base;
 		t++;
@@ -46,20 +47,19 @@ char			*ft_itoabase(int n, char *base)
 {
 	char	*str;
 
-	str = ft_strnew(ft_howmanynbr(n, ft_strlen(base)));
 	if (n == 0)
 		str = ft_strdup("0");
-	else if (n < 0)
+	else
 	{
 		str = ft_trad(str, n, base);
-		if (ft_strlen(base) != 16)
+		if (n < 0 && ft_strlen(base) != 16)
 		{
-			if (!(str = ft_strjoinplus(str, "-", 1)))
+			if (ft_strlen(base) == 8 && !(str = ft_strjoinplus(str, "3", 1)))
+				return (NULL);
+			if (ft_strlen(base) == 10 && !(str = ft_strjoinplus(str, "-", 1)))
 				return (NULL);
 		}
+		str = ft_strrev(str);
 	}
-	else
-		str = ft_trad(str, n, base);
-	str = ft_strrev(str);
 	return (str);
 }

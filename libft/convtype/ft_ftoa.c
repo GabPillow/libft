@@ -6,78 +6,87 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/09 15:58:09 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/04 18:00:42 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/07 19:19:40 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		rearrondi(char *str, size_t end)
+static int		ft_exclusiveone(long double n)
 {
-	while (end && (str[end] == '9' || str[end] == '.'))
+	int c;
+
+	c = 0;
+	while (n && c < 2)
 	{
-		str[end] == '9' ? str[end] = '0' : 0;
-		end--;
+		n *= 10;
+		n -= (long)n;
+		c++;
 	}
-	if (!end && str[end] == '9')
-	{
-		str[end] = '0';
+	if (c == 2)
 		return (1);
-	}
-	str[end] = str[end] + 1;
-	return (0);
+	else
+		return (0);
 }
 
-static char		*arrondi(char *str, size_t prec, size_t end)
+static char		*ft_putmantice(long double n, size_t prec, char *str)
 {
-	char	*str_new;
-
-	prec += ft_strlenn(str, '.') + 1;
-	str[prec - 1] == '.' ? prec -= 1 : 0;
-	while (end-- >= prec)
+	prec++;
+	n < 0 && n != -0 ? n *= -1 : 0;
+	while (prec)
 	{
-		if (str[end] >= '5')
-		{
-			str[end - 1] == '.' ? end-- : 0;
-			if (str[end - 1] == '9')
-			{
-				if (rearrondi(str, end - 1))
-				{
-					prec += 1;
-					str = ft_strjoinplus("1", str, 2);
-				}
-			}
-			else
-				str[end - 1] = str[end - 1] + 1;
-		}
+		n *= 10;
+		if (!(str = ft_strjoinplus(str, ft_lltoa((long)n), 3)))
+			return (NULL);
+		n -= (long)n;
+		prec--;
 	}
-	str_new = ft_strndup(str, prec);
-	ft_strdel(&str);
-	return (str_new);
+	return (str);
+}
+
+static char		*ft_nan_inf(char *str, long double n)
+{
+	if (n == 1.0 / 0.0)
+	{
+		if (!(str = ft_strdup("inf")))
+			return (NULL);
+	}
+	else if (n == -1.0 / 0.0)
+	{
+		if (!(str = ft_strdup("-inf")))
+			return (NULL);
+	}
+	else if (n != n)
+	{
+		if (!(str = ft_strdup("nan")))
+			return (NULL);
+	}
+	return (str);
 }
 
 char			*ft_ftoa(long double n, size_t prec)
 {
 	char	*str_new;
-	size_t	start;
-	int		s;
 
-	s = 1;
-	n < 0 ? s = -1 : 0;
-	str_new = ft_lltoa((long long)n * s);
-	start = ft_strlen(str_new) + 1;
-	if (!(str_new = ft_strjoinplus(str_new, ".", 1)))
-		return (NULL);
-	n = (n * s) - ((long long)n * s);
-	while (n)
+	if (n == 1.0 / 0.0 || n == -1.0 / 0.0 || n != n)
 	{
-		n *= 10;
-		if (!(str_new = ft_strjoinplus(str_new, ft_lltoa((long long)n), 3)))
-			return (NULL);
-		n -= (long long)n;
+		str_new = ft_nan_inf(str_new, n);
+		return (str_new);
 	}
-	if ((ft_strlen(str_new) - start) > prec)
-		str_new = arrondi(str_new, prec, ft_strlen(str_new));
-	s == -1 ? str_new = ft_strjoinplus("-", str_new, 2) : 0;
+	else if (1.0 / n == -1.0 / 0.0)
+	{
+		if (!(str_new = ft_strdup("-0")))
+			return (NULL);
+	}
+	else
+		str_new = ft_lltoa(n);
+	n = (n) - ((long)n);
+	if (ft_exclusiveone(n) || prec)
+	{
+		if (!(str_new = ft_strjoinplus(str_new, ".", 1)))
+			return (NULL);
+		str_new = ft_putmantice(n, prec, str_new);
+		str_new = arrondi(str_new, ft_strlen(str_new) - 1);
+	}
 	return (str_new);
 }

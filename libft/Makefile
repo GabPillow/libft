@@ -6,7 +6,7 @@
 #    By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:51:46 by grochefo          #+#    #+#              #
-#    Updated: 2019/03/02 18:01:01 by grochefo         ###   ########.fr        #
+#    Updated: 2019/03/10 14:22:17 by grochefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,10 @@ FILES_C = 	convtype/ft_atoi.c \
 		convtype/ft_lltoa.c \
 		convtype/ft_ultoa_base.c \
 		convtype/ft_lltoa_base.c \
+		convtype/arrondi.c \
+		convtype/ft_llutoa.c \
+		convtype/ft_uitoa.c \
+		convtype/ft_ultoa.c \
 		manage_list/ft_lstdel.c \
 		manage_list/ft_lstdelone.c \
 		manage_list/ft_lstiter.c \
@@ -94,20 +98,20 @@ OBJ = $(patsubst %.c,%.o,$(FILES_C))
 all: $(NAME)
 
 $(NAME) : $(FILES_C) $(INC) $(OBJ)
-	echo "LIBFT compiling..."
+	echo "\033[1;33mLIBFT compiling...\033[0m"
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
-	echo "LIBFT compilation over."
+	echo "\033[32mLIBFT compilation over.\033[0m"
 
 %.o : %.c
 	@gcc -I. -o $@ -c $<
 
 clean :
-	echo "Cleaning LIBFT..."
+	echo "\033[1;33mCleaning LIBFT...\033[0m"
 	rm -f $(OBJ)
-	echo ".o removed."
+	echo "\033[0;35m.o removed.\033[0m"
 
 fclean: clean
 	    rm -f $(NAME)
-		echo "$(NAME) removed."
+		echo "\033[0;35m$(NAME) removed.\033[0m"
 re: fclean all

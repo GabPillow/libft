@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_llutoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/18 17:09:33 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/18 19:16:23 by grochefo         ###   ########.fr       */
+/*   Created: 2019/03/10 13:48:52 by grochefo          #+#    #+#             */
+/*   Updated: 2019/03/10 14:50:41 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*copy(char *s, int n, int i)
+static char		*copy(char *s, unsigned long long n, int i)
 {
-	if (n == -2147483648)
-	{
-		ft_strcpy(&s[1], "2147483648");
-		return (s);
-	}
-	if (n < 0)
-		n = n * -1;
 	if (n <= 9)
 		s[i] = n + '0';
 	else
@@ -31,28 +24,20 @@ static char		*copy(char *s, int n, int i)
 	return (s);
 }
 
-char			*ft_itoa(int n)
+char			*ft_llutoa(unsigned long long n)
 {
-	char	*str_new;
-	int		i;
-	int		svg;
+	char				*str_new;
+	int					i;
+	unsigned long long	svg;
 
-	str_new = NULL;
 	svg = n;
 	i = 1;
-	while (svg > 10 || svg < -10)
+	while (svg > 10)
 	{
 		svg = svg / 10;
 		i++;
 	}
-	if (n < 0)
-	{
-		if (!(str_new = ft_strnew(i + 1)))
-			return (NULL);
-		str_new[0] = '-';
-		i = i + 1;
-	}
-	else if (!(str_new = ft_strnew(i)))
+	if (!(str_new = ft_strnew(i)))
 		return (NULL);
 	copy(str_new, n, i - 1);
 	str_new[i] = '\0';

@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/04 17:57:48 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/18 20:43:12 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_strjoinplus(char *s1, char *s2, int c);
 char				*ft_strndup(const char *s, size_t i);
 char				*ft_itoabase(int n, char *base);
-char				*ft_strrev(const char *str);
+char				*ft_strrev(char *str);
 char				*ft_llutoa_base(unsigned long long n, char *base);
 char				*ft_ltoa_base(long n, char *base);
 char				*ft_strjoinnplus(char *s1, char *s2, int c, size_t len2);
@@ -108,4 +108,8 @@ size_t				ft_strlenn(const char *str, char c);
 char				*ft_ultoa_base(unsigned long n, char *base);
 char				*ft_lltoa_base(long long n, char *base);
 void				ft_printexit(int c);
+char				*arrondi(char *str, size_t prec);
+char				*ft_llutoa(unsigned long long n);
+char				*ft_uitoa(unsigned int n);
+char				*ft_ultoa(unsigned long n);
 #endif

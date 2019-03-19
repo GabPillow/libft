@@ -6,13 +6,13 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 17:42:48 by grochefo          #+#    #+#             */
-/*   Updated: 2019/01/31 10:43:32 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/18 20:43:24 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrev(const char *str)
+char	*ft_strrev(char *str)
 {
 	int		i;
 	int		b;
@@ -29,5 +29,6 @@ char	*ft_strrev(const char *str)
 		b++;
 	}
 	str_copy[b] = '\0';
+	ft_strdel(&str);
 	return (str_copy);
 }
