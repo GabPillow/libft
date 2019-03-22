@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_strncut.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/22 18:21:02 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/21 16:17:01 by grochefo         ###   ########.fr       */
+/*   Created: 2019/03/20 17:10:12 by grochefo          #+#    #+#             */
+/*   Updated: 2019/03/20 17:20:34 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_exit(int c)
+char	*ft_strncut(char *dest, int n, int d)
 {
-	if (c == 1)
-		return ;
-	exit(-1);
+	char	*svg;
+
+	if (!(svg = ft_strndup(dest, n)))
+		return (NULL);
+	if (dest && d == 1)
+		ft_strdel(&dest);
+	return (svg);
 }

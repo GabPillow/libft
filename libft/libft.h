@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/18 20:43:12 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/21 16:17:37 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,11 @@ char				*ft_lltoa(long long n);
 size_t				ft_strlenn(const char *str, char c);
 char				*ft_ultoa_base(unsigned long n, char *base);
 char				*ft_lltoa_base(long long n, char *base);
-void				ft_printexit(int c);
+void				ft_exit(int c);
 char				*arrondi(char *str, size_t prec);
 char				*ft_llutoa(unsigned long long n);
 char				*ft_uitoa(unsigned int n);
 char				*ft_ultoa(unsigned long n);
+char				*ft_bintoa(void *obj, size_t t);
+char				*ft_strncut(char *dest, int n, int d);
 #endif
