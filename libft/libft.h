@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:25:19 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/21 16:17:37 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/22 19:06:09 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define LIBFT_H
 
+# include "ft_printf/ft_printf.h"
 # include "get_next_line.h"
 # include <string.h>
 # include <stdlib.h>

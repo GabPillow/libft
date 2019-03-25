@@ -6,7 +6,7 @@
 /*   By: grochefo <grochefo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 16:10:07 by grochefo          #+#    #+#             */
-/*   Updated: 2019/03/18 20:45:30 by grochefo         ###   ########.fr       */
+/*   Updated: 2019/03/22 19:44:22 by grochefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char			*ft_itoabase(int n, char *base)
 {
 	char	*str;
 
+	str = NULL;
 	if (n == 0)
 		str = ft_strdup("0");
 	else
